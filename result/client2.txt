@@ -1,0 +1,100 @@
+F:\fed_learning>python client.py
+Path to folder with CSV(s): F:\fed_learning\dataset\part3
+Server IP (for same machine use 127.0.0.1): 192.168.0.107
+Server port (default 8080): 8080
+Initializing client...
+Loaded iotsim-combined-cycle-1.csv shape=(5974887, 23)
+Connecting to Flower server at 192.168.0.107:8080 ...
+WARNING :   DEPRECATED FEATURE: flwr.client.start_client() is deprecated.
+        Instead, use the `flower-supernode` CLI command to start a SuperNode as shown below:
+
+                $ flower-supernode --insecure --superlink='<IP>:<PORT>'
+
+        To view all available options, run:
+
+                $ flower-supernode --help
+
+        Using `start_client()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+
+INFO :
+INFO :      Received: train message 35310418-a965-44e7-aae2-8379f7bca3da
+>>> fit() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Client discovered unseen labels: ['CoAP Amplification', 'Merlin C&C Communication', 'Mirai C&C Communication', 'UDP Scan']
+Client initialized inside fit(): data and model ready.
+Training locally on 4779909 examples...
+Local training done; returning parameters to server.
+INFO :      Sent reply
+INFO :
+INFO :      Received: evaluate message 92e8ed9f-e5b1-46f8-9cb8-59870dda0d77
+>>> evaluate() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Evaluating on 1194978 examples...
+Fixing probability matrix: expected 14 cols, got 18
+Warning: log_loss computation failed: got an unexpected keyword argument 'eps'
+Traceback (most recent call last):
+  File "F:\fed_learning\client.py", line 334, in evaluate
+    y_pred = self.model.predict(X_test_arr)
+  File "C:\Users\islam\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_base.py", line 381, in predict
+    return xp.take(self.classes_, indices, axis=0)
+  File "C:\Users\islam\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\core\fromnumeric.py", line 192, in take
+    return _wrapfunc(a, 'take', indices, axis=axis, out=out, mode=mode)
+  File "C:\Users\islam\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\core\fromnumeric.py", line 59, in _wrapfunc
+    return bound(*args, **kwds)
+IndexError: index 14 is out of bounds for axis 0 with size 14
+Exception in evaluate(): IndexError('index 14 is out of bounds for axis 0 with size 14')
+INFO :      Sent reply
+INFO :
+INFO :      Received: train message d853bc7f-e516-40cd-8839-b7d36727b9dc
+>>> fit() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Training locally on 4779909 examples...
+Local training done; returning parameters to server.
+INFO :      Sent reply
+INFO :
+INFO :      Received: evaluate message 6b6d7f96-15b5-4358-892f-7552dda80842
+>>> evaluate() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Evaluating on 1194978 examples...
+Fixing probability matrix: expected 14 cols, got 18
+Warning: log_loss computation failed: got an unexpected keyword argument 'eps'
+Traceback (most recent call last):
+  File "F:\fed_learning\client.py", line 334, in evaluate
+    y_pred = self.model.predict(X_test_arr)
+  File "C:\Users\islam\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_base.py", line 381, in predict
+    return xp.take(self.classes_, indices, axis=0)
+  File "C:\Users\islam\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\core\fromnumeric.py", line 192, in take
+    return _wrapfunc(a, 'take', indices, axis=axis, out=out, mode=mode)
+  File "C:\Users\islam\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\core\fromnumeric.py", line 59, in _wrapfunc
+    return bound(*args, **kwds)
+IndexError: index 14 is out of bounds for axis 0 with size 14
+Exception in evaluate(): IndexError('index 14 is out of bounds for axis 0 with size 14')
+INFO :      Sent reply
+INFO :
+INFO :      Received: train message e0bdf6f9-2c3d-4a3a-af05-21d6ae7fc326
+>>> fit() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Training locally on 4779909 examples...
+Local training done; returning parameters to server.
+INFO :      Sent reply
+INFO :
+INFO :      Received: evaluate message 836a516e-9976-4ceb-85b6-f29ed9a00a54
+>>> evaluate() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Evaluating on 1194978 examples...
+Fixing probability matrix: expected 14 cols, got 18
+Warning: log_loss computation failed: got an unexpected keyword argument 'eps'
+Traceback (most recent call last):
+  File "F:\fed_learning\client.py", line 334, in evaluate
+    y_pred = self.model.predict(X_test_arr)
+  File "C:\Users\islam\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_base.py", line 381, in predict
+    return xp.take(self.classes_, indices, axis=0)
+  File "C:\Users\islam\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\core\fromnumeric.py", line 192, in take
+    return _wrapfunc(a, 'take', indices, axis=axis, out=out, mode=mode)
+  File "C:\Users\islam\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\core\fromnumeric.py", line 59, in _wrapfunc
+    return bound(*args, **kwds)
+IndexError: index 14 is out of bounds for axis 0 with size 14
+Exception in evaluate(): IndexError('index 14 is out of bounds for axis 0 with size 14')
+INFO :      Sent reply
+INFO :
+INFO :      Received: reconnect message 3be8ba1a-d716-487c-8d53-26916cc812e7
+INFO :      Disconnect and shut down
+
+F:\fed_learning>

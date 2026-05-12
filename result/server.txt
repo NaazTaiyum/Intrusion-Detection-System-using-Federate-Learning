@@ -1,0 +1,86 @@
+A:\fed_learning>python server.py
+[INFO] Scanning 37 CSV files for all unique labels...
+[INFO] Auto-detected 14 classes:
+       1. Benign
+       2. C&C Communication
+       3. File Download
+       4. Ingress Tool Transfer
+       5. Merlin ICMP Flooding
+       6. Merlin TCP Flooding
+       7. Merlin UDP Flooding
+       8. Mirai GRE Flooding
+       9. Mirai TCP Flooding
+      10. Mirai UDP Flooding
+      11. Reporting
+      12. TCP Scan
+      13. Telnet Brute Force
+      14. Unknown
+[INFO] Saved label encoder to models\label_encoder.joblib
+[INFO] Created and saved initial model to models\network_sgd_classifier.joblib
+Starting Flower server at 0.0.0.0:8080 for 3 rounds ...
+WARNING :   DEPRECATED FEATURE: flwr.server.start_server() is deprecated.
+        Instead, use the `flower-superlink` CLI command to start a SuperLink as shown below:
+
+                $ flower-superlink --insecure
+
+        To view usage and all available options, run:
+
+                $ flower-superlink --help
+
+        Using `start_server()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+
+INFO :      Starting Flower server, config: num_rounds=3, no round_timeout
+INFO :      Flower ECE: gRPC server running (3 rounds), SSL is disabled
+INFO :      [INIT]
+INFO :      Using initial global parameters provided by strategy
+INFO :      Starting evaluation of initial global parameters
+INFO :      Evaluation returned no results (`None`)
+INFO :
+INFO :      [ROUND 1]
+INFO :      configure_fit: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_fit: received 5 results and 0 failures
+[Server] aggregate_fit called for round 1 with 5 client updates (failures=0)
+WARNING :   No fit_metrics_aggregation_fn provided
+[Server] Clients reported new classes: ['CoAP Amplification', 'Merlin C&C Communication', 'Mirai C&C Communication', 'UDP Scan']
+[Server] Updated label encoder saved with 18 classes.
+[Server] Expanded model saved to: models\network_sgd_classifier_round1_expanded.joblib
+[Server] Warning computing diffs: operands could not be broadcast together with shapes (18,13) (14,13)
+INFO :      configure_evaluate: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_evaluate: received 5 results and 0 failures
+WARNING :   No evaluate_metrics_aggregation_fn provided
+INFO :
+INFO :      [ROUND 2]
+INFO :      configure_fit: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_fit: received 5 results and 0 failures
+[Server] aggregate_fit called for round 2 with 5 client updates (failures=0)
+[Server] Clients reported new classes: ['CoAP Amplification', 'Merlin C&C Communication', 'Mirai C&C Communication', 'UDP Scan']
+[Server] Updated label encoder saved with 18 classes.
+[Server] Saved aggregated model to: models\network_sgd_classifier_round2.joblib
+[Server] param #0: L2-change=8.051300e+03, max-abs-change=4.268676e+03
+[Server] param #1: L2-change=1.842785e+02, max-abs-change=1.551519e+02
+INFO :      configure_evaluate: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_evaluate: received 5 results and 0 failures
+INFO :
+INFO :      [ROUND 3]
+INFO :      configure_fit: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_fit: received 5 results and 0 failures
+[Server] aggregate_fit called for round 3 with 5 client updates (failures=0)
+[Server] Clients reported new classes: ['CoAP Amplification', 'Merlin C&C Communication', 'Mirai C&C Communication', 'UDP Scan']
+[Server] Updated label encoder saved with 18 classes.
+[Server] Saved aggregated model to: models\network_sgd_classifier_round3.joblib
+[Server] param #0: L2-change=4.021130e+03, max-abs-change=2.219024e+03
+[Server] param #1: L2-change=1.141595e+02, max-abs-change=9.712231e+01
+INFO :      configure_evaluate: strategy sampled 5 clients (out of 5)
+INFO :      aggregate_evaluate: received 5 results and 0 failures
+INFO :
+INFO :      [SUMMARY]
+INFO :      Run finished 3 round(s) in 478.14s
+INFO :          History (loss, distributed):
+INFO :                  round 1: inf
+INFO :                  round 2: inf
+INFO :                  round 3: inf
+INFO :
+Server finished.

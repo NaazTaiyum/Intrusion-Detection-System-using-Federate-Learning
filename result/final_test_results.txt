@@ -1,0 +1,194 @@
+
+============================================================
+Federated Learning Model Testing
+============================================================
+
+============================================================
+FEDERATED LEARNING MODEL EVALUATION
+============================================================
+
+Loading dataset...
+Found 4 CSV file(s) in dataset
+  [OK] Loaded iotsim-cooler-motor-2.csv: 22468 rows
+  [OK] Loaded iotsim-cooler-motor-3.csv: 22478 rows
+  [OK] Loaded iotsim-cooler-motor-4.csv: 22478 rows
+  [OK] Loaded iotsim-cooler-motor-5.csv: 22471 rows
+
+Total combined data: 89895 rows, 23 columns
+
+Preprocessing features...
+Loading label encoder...
+  [OK] Loaded label encoder
+Classes: ['Benign' 'Attack']
+  [OK] Labels transformed successfully
+
+Splitting data into train/test (80/20)...
+Train samples: 71916
+Test samples:  17979
+
+Label Distribution in Test Set:
+  Benign: 17979 (100.00%)
+
+============================================================
+TESTING TRAINED MODELS
+============================================================
+
+[1/4] Testing Main Model...
+  [OK] Loaded model: models\network_sgd_classifier.joblib
+
+============================================================
+  EVALUATING: Main Model
+============================================================
+Test Samples: 17979
+Accuracy:     1.0000 (100.00%)
+Precision:    1.0000
+Recall:       1.0000
+F1-Score:     1.0000
+Log Loss:     0.0067
+
+Confusion Matrix:
+[[17979]]
+
+Per-Class Metrics:
+              precision    recall  f1-score   support
+
+      Benign       1.00      1.00      1.00     17979
+      Attack       0.00      0.00      0.00         0
+
+    accuracy                           1.00     17979
+   macro avg       0.50      0.50      0.50     17979
+weighted avg       1.00      1.00      1.00     17979
+
+
+[2/4] Testing Round 1 Model...
+  [OK] Loaded model: models\network_sgd_classifier_round1.joblib
+
+============================================================
+  EVALUATING: Round 1 Model
+============================================================
+Test Samples: 17979
+Accuracy:     1.0000 (100.00%)
+Precision:    1.0000
+Recall:       1.0000
+F1-Score:     1.0000
+Log Loss:     0.0000
+
+Confusion Matrix:
+[[17979]]
+
+Per-Class Metrics:
+              precision    recall  f1-score   support
+
+      Benign       1.00      1.00      1.00     17979
+      Attack       0.00      0.00      0.00         0
+
+    accuracy                           1.00     17979
+   macro avg       0.50      0.50      0.50     17979
+weighted avg       1.00      1.00      1.00     17979
+
+
+[3/4] Testing Round 2 Model...
+  [OK] Loaded model: models\network_sgd_classifier_round2.joblib
+
+============================================================
+  EVALUATING: Round 2 Model
+============================================================
+Test Samples: 17979
+Accuracy:     1.0000 (100.00%)
+Precision:    1.0000
+Recall:       1.0000
+F1-Score:     1.0000
+Log Loss:     0.0000
+
+Confusion Matrix:
+[[17979]]
+
+Per-Class Metrics:
+              precision    recall  f1-score   support
+
+      Benign       1.00      1.00      1.00     17979
+      Attack       0.00      0.00      0.00         0
+
+    accuracy                           1.00     17979
+   macro avg       0.50      0.50      0.50     17979
+weighted avg       1.00      1.00      1.00     17979
+
+
+[4/4] Testing Round 3 Model...
+  [OK] Loaded model: models\network_sgd_classifier_round3.joblib
+
+============================================================
+  EVALUATING: Round 3 Model
+============================================================
+Test Samples: 17979
+Accuracy:     1.0000 (100.00%)
+Precision:    1.0000
+Recall:       1.0000
+F1-Score:     1.0000
+Log Loss:     0.0000
+
+Confusion Matrix:
+[[17979]]
+
+Per-Class Metrics:
+              precision    recall  f1-score   support
+
+      Benign       1.00      1.00      1.00     17979
+      Attack       0.00      0.00      0.00         0
+
+    accuracy                           1.00     17979
+   macro avg       0.50      0.50      0.50     17979
+weighted avg       1.00      1.00      1.00     17979
+
+
+============================================================
+SUMMARY
+============================================================
+
+Evaluated 4 model(s):
+
+Main Model           | Accuracy: 1.0000 | F1: 1.0000 | Loss: 0.0067
+Round 1 Model        | Accuracy: 1.0000 | F1: 1.0000 | Loss: 0.0000
+Round 2 Model        | Accuracy: 1.0000 | F1: 1.0000 | Loss: 0.0000
+Round 3 Model        | Accuracy: 1.0000 | F1: 1.0000 | Loss: 0.0000
+
+[BEST] Best Model: Main Model with 1.0000 accuracy
+
+Training Progress Analysis:
+  Initial Accuracy: 1.0000
+  Final Accuracy:   1.0000
+  Improvement:      +0.00%
+  [INFO] Model accuracy remains the same.
+
+============================================================
+
+
+============================================================
+CLIENT TRAINING ANALYSIS
+============================================================
+
+  [OK] Loaded model: models\network_sgd_classifier.joblib
+Analyzing model weights across federated rounds...
+
+  [OK] Loaded model: models\network_sgd_classifier_round1.joblib
+  [OK] Loaded model: models\network_sgd_classifier_round2.joblib
+  [OK] Loaded model: models\network_sgd_classifier_round3.joblib
+Model           | Coef L2-Norm    | Intercept      
+--------------------------------------------------
+Main            | 0.000000        | -5.000000      
+Round 1         | 80.297656       | -5.066862      
+Round 2         | 40.426038       | -5.066862      
+Round 3         | 27.012863       | -5.066862      
+
+Weight Changes Between Rounds:
+--------------------------------------------------
+Main -> Round 1      | Change: +80.297656 (+0.00%)
+Round 1 -> Round 2      | Change: -39.871618 (-49.65%)
+Round 2 -> Round 3      | Change: -13.413176 (-33.18%)
+
+============================================================
+TRAINING VERDICT:
+============================================================
+[OK] Client is properly training!
+  Average weight change: 44.527483
+  Models are being updated with client data each round.

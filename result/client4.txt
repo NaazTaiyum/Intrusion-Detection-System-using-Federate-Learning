@@ -1,0 +1,133 @@
+
+A:\fed_learning>python client.py
+Path to folder with CSV(s): A:\fed_learning\dataset\part4
+Server IP (for same machine use 127.0.0.1): 127.0.0.1
+Server port (default 8080): 8080
+Initializing client...
+Loaded iotsim-air-quality-1.csv shape=(55052, 23)
+Loaded iotsim-building-monitor-2.csv shape=(1740, 23)
+Loaded iotsim-building-monitor-3.csv shape=(1740, 23)
+Loaded iotsim-building-monitor-4.csv shape=(1740, 23)
+Loaded iotsim-building-monitor-5.csv shape=(1740, 23)
+Loaded iotsim-city-power-1.csv shape=(1516431, 23)
+Loaded iotsim-combined-cycle-10.csv shape=(138509, 23)
+Loaded iotsim-combined-cycle-2.csv shape=(254, 23)
+Loaded iotsim-combined-cycle-3.csv shape=(254, 23)
+Loaded iotsim-combined-cycle-4.csv shape=(254, 23)
+Loaded iotsim-combined-cycle-5.csv shape=(254, 23)
+Loaded iotsim-combined-cycle-6.csv shape=(254, 23)
+Loaded iotsim-combined-cycle-7.csv shape=(254, 23)
+Loaded iotsim-combined-cycle-8.csv shape=(254, 23)
+Loaded iotsim-combined-cycle-9.csv shape=(258, 23)
+Loaded iotsim-combined-cycle-tls-1.csv shape=(1944, 23)
+Loaded iotsim-combined-cycle-tls-2.csv shape=(1944, 23)
+Loaded iotsim-combined-cycle-tls-3.csv shape=(1944, 23)
+Loaded iotsim-combined-cycle-tls-4.csv shape=(1944, 23)
+Loaded iotsim-combined-cycle-tls-5.csv shape=(1944, 23)
+Loaded iotsim-cooler-motor-1.csv shape=(157310, 23)
+Loaded iotsim-cooler-motor-10.csv shape=(22476, 23)
+Loaded iotsim-cooler-motor-11.csv shape=(22472, 23)
+Loaded iotsim-cooler-motor-12.csv shape=(22469, 23)
+Loaded iotsim-cooler-motor-13.csv shape=(22471, 23)
+Loaded iotsim-cooler-motor-14.csv shape=(22475, 23)
+Loaded iotsim-cooler-motor-15.csv shape=(22468, 23)
+Loaded iotsim-cooler-motor-2.csv shape=(22468, 23)
+Loaded iotsim-cooler-motor-3.csv shape=(22478, 23)
+Loaded iotsim-cooler-motor-4.csv shape=(22478, 23)
+Loaded iotsim-cooler-motor-5.csv shape=(22471, 23)
+Loaded iotsim-cooler-motor-6.csv shape=(22468, 23)
+Loaded iotsim-cooler-motor-7.csv shape=(22475, 23)
+Loaded iotsim-cooler-motor-8.csv shape=(22466, 23)
+Loaded iotsim-cooler-motor-9.csv shape=(22472, 23)
+Loaded iotsim-domotic-monitor-1.csv shape=(2114866, 23)
+Connecting to Flower server at 127.0.0.1:8080 ...
+WARNING :   DEPRECATED FEATURE: flwr.client.start_client() is deprecated.
+        Instead, use the `flower-supernode` CLI command to start a SuperNode as shown below:
+
+                $ flower-supernode --insecure --superlink='<IP>:<PORT>'
+
+        To view all available options, run:
+
+                $ flower-supernode --help
+
+        Using `start_client()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+
+INFO :
+INFO :      Received: train message 081c5699-f9fb-4158-a921-788f2bff71d5
+>>> fit() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Client initialized inside fit(): data and model ready.
+Training locally on 3452392 examples...
+Local training done; returning parameters to server.
+INFO :      Sent reply
+INFO :
+INFO :      Received: evaluate message 5efa15b0-adc5-449b-9fa9-d167308f2737
+>>> evaluate() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Evaluating on 863099 examples...
+Fixing probability matrix: expected 14 cols, got 18
+Warning: log_loss computation failed: got an unexpected keyword argument 'eps'
+Traceback (most recent call last):
+  File "A:\fed_learning\client.py", line 334, in evaluate
+    y_pred = self.model.predict(X_test_arr)
+  File "C:\Users\Rafi\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_base.py", line 381, in predict
+    return xp.take(self.classes_, indices, axis=0)
+  File "C:\Users\Rafi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\_core\fromnumeric.py", line 203, in take
+    return _wrapfunc(a, 'take', indices, axis=axis, out=out, mode=mode)
+  File "C:\Users\Rafi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\_core\fromnumeric.py", line 57, in _wrapfunc
+    return bound(*args, **kwds)
+IndexError: index 14 is out of bounds for axis 0 with size 14
+Exception in evaluate(): IndexError('index 14 is out of bounds for axis 0 with size 14')
+INFO :      Sent reply
+INFO :
+INFO :      Received: train message cc3d61e3-0909-4b2c-9478-3e1068b203c3
+>>> fit() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Training locally on 3452392 examples...
+Local training done; returning parameters to server.
+INFO :      Sent reply
+INFO :
+INFO :      Received: evaluate message c39b8855-72c5-44ff-aad5-20d05f38b636
+>>> evaluate() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Evaluating on 863099 examples...
+Fixing probability matrix: expected 14 cols, got 18
+Warning: log_loss computation failed: got an unexpected keyword argument 'eps'
+Traceback (most recent call last):
+  File "A:\fed_learning\client.py", line 334, in evaluate
+    y_pred = self.model.predict(X_test_arr)
+  File "C:\Users\Rafi\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_base.py", line 381, in predict
+    return xp.take(self.classes_, indices, axis=0)
+  File "C:\Users\Rafi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\_core\fromnumeric.py", line 203, in take
+    return _wrapfunc(a, 'take', indices, axis=axis, out=out, mode=mode)
+  File "C:\Users\Rafi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\_core\fromnumeric.py", line 57, in _wrapfunc
+    return bound(*args, **kwds)
+IndexError: index 14 is out of bounds for axis 0 with size 14
+Exception in evaluate(): IndexError('index 14 is out of bounds for axis 0 with size 14')
+INFO :      Sent reply
+INFO :
+INFO :      Received: train message 05d62531-37d6-421e-9f33-769956c34271
+>>> fit() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Training locally on 3452392 examples...
+Local training done; returning parameters to server.
+INFO :      Sent reply
+INFO :
+INFO :      Received: evaluate message bff795ed-41a4-496c-87d8-9202f81fb22b
+>>> evaluate() called by server. config keys: ['rnd', 'classes_json', 'n_features']
+Evaluating on 863099 examples...
+Fixing probability matrix: expected 14 cols, got 18
+Warning: log_loss computation failed: got an unexpected keyword argument 'eps'
+Traceback (most recent call last):
+  File "A:\fed_learning\client.py", line 334, in evaluate
+    y_pred = self.model.predict(X_test_arr)
+  File "C:\Users\Rafi\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_base.py", line 381, in predict
+    return xp.take(self.classes_, indices, axis=0)
+  File "C:\Users\Rafi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\_core\fromnumeric.py", line 203, in take
+    return _wrapfunc(a, 'take', indices, axis=axis, out=out, mode=mode)
+  File "C:\Users\Rafi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\_core\fromnumeric.py", line 57, in _wrapfunc
+    return bound(*args, **kwds)
+IndexError: index 14 is out of bounds for axis 0 with size 14
+Exception in evaluate(): IndexError('index 14 is out of bounds for axis 0 with size 14')
+INFO :      Sent reply
+INFO :
+INFO :      Received: reconnect message 6f24bbc6-266c-4987-83f3-cea81797196e
+INFO :      Disconnect and shut down
